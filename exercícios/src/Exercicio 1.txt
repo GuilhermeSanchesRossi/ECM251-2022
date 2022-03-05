@@ -1,4 +1,4 @@
-public class Exercício 1 {
+public class Exercicio 1 {
     public static void main(String[] args) {
         //Imprima todos os numeros de 150 a 300
         int i;
