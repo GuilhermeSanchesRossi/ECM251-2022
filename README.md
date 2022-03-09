@@ -25,7 +25,13 @@ git add .
 ```bash
 git commit -m "mensagem"
 ```
+
 - Verificar o status:
 ```bash
 git status
+```
+
+- Listar os arquivos no diretorio:
+```bash
+ls -l
 ```
