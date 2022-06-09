@@ -18,8 +18,8 @@ public class Sistema {
         }
 
         for(int i = 0; i < membros.size(); i++){
-            if(membros(i).getFuncao().toUpperCase().equals("HEAVYLIFTER"))
-                remove(membros(i));
+            if(membros.get(i).getFuncao().toUpperCase().equals("HEAVYLIFTER"))
+                membros.remove(membros.get(i));
         }
 
         for(Membro m : membros){
