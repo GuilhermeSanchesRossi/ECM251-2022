@@ -1,5 +1,5 @@
-from item import Item       # Convenção em py: nome de arquivo começa em minúsculo; classe começa com maiúsculo
-from carrinho import Carrinho
+from modelos.item import Item       # Convenção em py: nome de arquivo começa em minúsculo; classe começa com maiúsculo
+from modelos.carrinho import Carrinho
 
 #Diferentes possibilidades de instanciação
 #Se vc especificar a variável, não é necessário fazer na ordem a instanciação delas
