@@ -23,5 +23,14 @@ bootstyle = "default",
 command = acao_Botao
 ).pack(side = LEFT, padx = 10, pady = 5) #subindo o botão à base da interface
 
+#criação de segundo botão
+bot2 = ttk.Button(base,
+text = "salve 2",
+bootstyle = (DANGER, OUTLINE),
+command = acao_Botao
+)
+
+bot2.pack(side = LEFT, padx = 10, pady = 5)
+
 #ponto de entrada da interface
 base.mainloop()
