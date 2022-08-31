@@ -1,50 +1,48 @@
+from cgitb import text
+from unittest.mock import DEFAULT
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 from tkinter import PhotoImage
 
 class MinhaUI():
-    def acao_botao(self):
-        print("Clicou no botão parabéns")
-
     def _construir_base(self):
         janela = ttk.Window(
-            title = "Minha primeira GUI carai",
-            size= (1024,920),
-            position = (512,100),
-            minsize = (600,300),
-            maxsize = (1800,900),
-            alpha = 0.9
+            title="Minha GUI Mauá",
+            size= (1024,400),
+            position= (100,100),
+            minsize= (600,300),
+            maxsize= (1800,900),
+            alpha=1.0
         )
         janela.iconphoto(False, PhotoImage(file='calculator.png'))
         return janela
 
+    def _criar_botao(self, texto, acao):
+        return ttk.Button(
+            self.base,
+            text=texto,
+            bootstyle=(DEFAULT),
+            command=acao
+        )
+
+    def _criar_texto(self, guardar):
+        return ttk.Entry(
+            self.base,
+            textvariable=guardar
+        )
+
     def __init__(self) -> None:
         self.base = self._construir_base()
-        #Criando um botão
-        ttk.Button(
-            self.base,
-            text="salve!",
-            bootstyle="default",
-            command=self.acao_botao
-        ).pack(side=LEFT, padx= 10, pady=5)
-
-        #Criando um segundo botão
-        self.bot2 = ttk.Button(
-            self.base,
-            text="salve2",
-            bootstyle=(DANGER,OUTLINE),
-            command=self.acao_botao
-        )
-        self.bot2.pack(side=LEFT, padx= 10, pady = 5)
+        self.bot = self._criar_botao(texto="AÇÃO", acao=self.mostrar_texto)
+        self.bot.grid(row=3, column=2, padx=5, pady=5)
+        self.valor_digitado = ""
+        self.text = self._criar_texto(guardar=self.valor_digitado)
+        self.text.grid(row=2, column=1, padx=5, pady=5)
     def run(self):
         self.base.mainloop()
 
-    def ativar_bot(self):
-        print("Ligando botao!")
-        self.bot2.configure(state="enabled")
-    def desativar_bot(self):
-        print("Desligando botao!")
-        self.bot2.configure(state="disabled")
+    def mostrar_texto(self):
+        print("Valor Digitado:", self.text.get())
 
 if __name__ == "__main__":
     app = MinhaUI()
