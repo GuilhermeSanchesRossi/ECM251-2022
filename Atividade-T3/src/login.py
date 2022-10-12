@@ -11,11 +11,8 @@ class Login():
         self.__janela_login.mainloop()
 
     def validar_login(self):
-        if (self.__email_digitado == "salve@gmail.com") and (self.__senha_digitada == "salve"):
-            tela_home = Home()
-            tela_home.rodar()
-        else:
-            print("Dados inválidos!")
+        self.__tela_home = Home()
+        self.__tela_home.rodar()
 
     def __init__(self):
 
