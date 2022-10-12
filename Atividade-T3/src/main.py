@@ -5,5 +5,5 @@ import ttkbootstrap as ttk
 from login import Login
 
 if __name__ == "__main__":
-    app = Login()
-    app.rodar()
+    tela_login = Login()
+    tela_login.rodar()
