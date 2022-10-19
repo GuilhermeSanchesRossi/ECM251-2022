@@ -4,9 +4,9 @@ class ItemController:
     def __init__(self) -> None:
         pass
 
-    #def pegar_item(self, id) -> Item:
-        #item = algo()
-        #return item
+    def pegar_item(self, id) -> Item:
+        item = ItemDAO.get_instance().pegar_item(id)
+        return item
 
     def inserir_item(self, item) -> bool:
         try:
