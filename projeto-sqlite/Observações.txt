@@ -1,0 +1,11 @@
+Design Pattern MVC (bem resumido):
+
+- Models: representam as entidades como classes/objetos
+- View: é o Front-End do projeto
+- Controllers: realizam consultas aos Models e atualiza os Views
+
+Com bancos de dados, um a mais:
+
+- Dao: consulta a tabela de dados diretamente e instancia a tabela
+
+Necessidade do arquivo __init__.py: permitir a importação de arquivos (classes)
