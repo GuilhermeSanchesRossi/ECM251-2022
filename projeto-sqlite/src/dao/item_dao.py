@@ -27,7 +27,7 @@ class ItemDAO:
         self.cursor.close()
         return resultados
     
-    def inserir_item(self, item):
+    def insere_item(self, item):
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
             INSERT INTO Itens (id, nome, preco)
@@ -36,7 +36,7 @@ class ItemDAO:
         self.conn.commit()
         self.cursor.close()
 
-    def pegar_item(self, id):
+    def pega_item(self, id):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             SELECT * FROM Itens
@@ -49,17 +49,42 @@ class ItemDAO:
         self.cursor.close()
         return item
 
-    def atualizar_item(self, item):
+    def atualiza_item(self, item):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
                 UPDATE Itens SET
                 nome = '{item.nome}',
-                preco = '{item.preco}'
+                preco = {item.preco}
                 WHERE id = '{item.id}';
-            """, (item.id, item.nome, item.preco))
+            """)
             self.conn.commit()
             self.cursor.close()
         except:
             return False
         return True
+
+    def deleta_item(self, id):
+        try:
+            self.cursor = self.conn.cursor()
+            self.cursor.execute(f"""
+                DELETE FROM Itens
+                WHERE id = '{id}';
+            """)
+            self.conn.commit()
+            self.cursor.close()
+        except:
+            return False
+        return True
+
+    def buscar_item_nome(self, nome):
+        self.cursor = self.conn.cursor()
+        self.cursor.execute(f"""
+            SELECT * FROM Itens
+            WHERE nome LIKE '{nome}%';
+        """)
+        resultados = []
+        for resultado in self.cursor.fetchall():
+            resultados.append(Item(id=resultado[0], nome=resultado[1], preco=resultado[2]))
+        self.cursor.close()
+        return resultados

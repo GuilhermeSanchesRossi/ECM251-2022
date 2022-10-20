@@ -5,12 +5,12 @@ class ItemController:
         pass
 
     def pegar_item(self, id) -> Item:
-        item = ItemDAO.get_instance().pegar_item(id)
+        item = ItemDAO.get_instance().pega_item(id)
         return item
 
     def inserir_item(self, item) -> bool:
         try:
-            ItemDAO.get_instance().inserir_item(item)
+            ItemDAO.get_instance().insere_item(item)
         except:
             return False
         return True
@@ -19,5 +19,13 @@ class ItemController:
         itens = ItemDAO.get_instance().get_all()
         return itens
 
-    def atualiza_item(self, item) -> bool:
-        return ItemDAO.get_instance().atualizar_item(item)
+    def atualizar_item(self, item) -> bool:
+        return ItemDAO.get_instance().atualiza_item(item)
+    
+    def deletar_item(self, id) -> bool:
+        return ItemDAO.get_instance().deleta_item(id)
+
+    def buscar_item(self, nome) -> list[Item]:
+        itens = ItemDAO.get_instance().buscar_item_nome(nome)
+        return itens
+
