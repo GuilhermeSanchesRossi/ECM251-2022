@@ -14,7 +14,7 @@ class PedidoDAO:
         return cls._instance
 
     def _connect(self):
-        self.conn = sqlite3.connect('./databases/sqlite.db')
+        self.conn = sqlite3.connect('./database/sqlite.db')
 
     def get_all(self):
         self.cursor = self.conn.cursor()
@@ -60,15 +60,15 @@ class PedidoDAO:
         self.cursor.close()
         return resultados
     
-    #TODO
-    def atualizar_item(self, item):
+    def atualizar_pedido(self, pedido):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPDATE Itens SET
-                nome = '{item.nome}',
-                preco = {item.preco}
-                WHERE id = '{item.id}'
+                UPDATE Pedidos SET
+                id_item = '{pedido.id_item}',
+                quantidade = {pedido.quantidade},
+                data_hora = '{pedido.data_hora}'
+                WHERE id = {pedido.id}
             """)
             self.conn.commit()
             self.cursor.close()
