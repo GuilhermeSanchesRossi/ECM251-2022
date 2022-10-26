@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\19.02404-5\Desktop\ECM251-2022\projeto-sqlite
+set VIRTUAL_ENV=C:\Users\guilh\OneDrive\Área de Trabalho\ECM251-2022\projeto-sqlite
 
 if not defined PROMPT set PROMPT=$P$G
 
