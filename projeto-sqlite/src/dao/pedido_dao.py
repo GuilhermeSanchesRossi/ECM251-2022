@@ -59,7 +59,7 @@ class PedidoDAO:
             resultados.append(Pedido(id=resultado[0], id_item=resultado[1], id_cliente=resultado[2], quantidade=resultado[3], numero_pedido=resultado[4], data_hora=resultado[5]))
         self.cursor.close()
         return resultados
-    
+
     def atualizar_pedido(self, pedido):
         try:
             self.cursor = self.conn.cursor()
@@ -81,7 +81,7 @@ class PedidoDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                DELETE FROM Itens 
+                DELETE FROM Pedidos 
                 WHERE id = '{id}'
             """)
             self.conn.commit()
