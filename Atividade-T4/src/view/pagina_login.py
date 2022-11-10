@@ -4,5 +4,5 @@ class PaginaLogin:
 
     def __init__(self):
         st.title("Faça seu login")
-        st.text_input(label = "email")
-        st.text_input(label = "senha")
+        self._email = st.text_input(label = "email")
+        self._senha = st.text_input(label = "senha")
