@@ -15,7 +15,7 @@ class ProdutoDAO:
         return cls._instance
 
     def _connect(self):
-        self.conn = sqlite3.connect('./databases/sqlite.db')
+        self.conn = sqlite3.connect('./databases/sqlite.db', check_same_thread=False)
 
     def cadastrar_produto(self, produto):
         self.cursor = self.conn.cursor()

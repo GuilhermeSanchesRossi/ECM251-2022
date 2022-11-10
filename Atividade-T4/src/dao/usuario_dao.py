@@ -15,7 +15,7 @@ class UsuarioDAO:
         return cls._instance
 
     def _connect(self):
-        self.conn = sqlite3.connect('./databases/sqlite.db')
+        self.conn = sqlite3.connect('./databases/sqlite.db', check_same_thread=False)
 
     def comparar_email(self, email):
         self.cursor = self.conn.cursor()
