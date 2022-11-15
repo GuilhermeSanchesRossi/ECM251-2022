@@ -6,6 +6,12 @@ class Usuario:
         self._email = email
         self._senha = senha
 
+    def get_id(self):
+        return self._id
+
+    def get_nome(self):
+        return self._nome
+
     def get_email(self):
         return self._email
 

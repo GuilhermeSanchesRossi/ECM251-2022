@@ -1,5 +1,5 @@
 import sqlite3
-from models.usuario import Usuario
+from src.models.usuario import Usuario
 
 class UsuarioDAO:
 
@@ -44,3 +44,25 @@ class UsuarioDAO:
         self.conn.commit()
         self.cursor.close()
         return False
+
+    def cadastrar_usuario(self, usuario):
+        self.cursor = self.conn.cursor()
+        self.cursor.execute("""
+            INSERT INTO Usuarios (id, nome, email, senha)
+            VALUES(?,?,?,?);
+        """, (usuario.get_id(), usuario.get_nome(), usuario.get_email(), usuario.get_senha()))
+        self.conn.commit()
+        self.cursor.close()
+
+    def procurar_usuario(self, id):
+        self.cursor = self.conn.cursor()
+        self.cursor.execute(f"""
+            SELECT * FROM Usuarios
+            WHERE id = '{id}';
+        """)
+        user = None
+        resultado = self.cursor.fetchone()
+        if resultado != None:
+            user = Usuario(id=resultado[0], nome=resultado[1], email=resultado[2], senha=resultado[3])
+        self.cursor.close()
+        return user
