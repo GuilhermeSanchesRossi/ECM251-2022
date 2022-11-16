@@ -1,24 +1,13 @@
 from src.controllers.usuario_controller import UsuarioController
+from src.controllers.produto_controller import ProdutoController
+from src.dao.produto_dao import ProdutoDAO
 from src.dao.usuario_dao import UsuarioDAO
 from src.models.usuario import Usuario
+from src.models.produto import Produto
 
-
-user_controller = UsuarioController()
-user_teste = Usuario("1", "jão", "abc@hotmail.com", "abcd")
-user_controller.cadastrar_user(user_teste)
-pegar_user = user_controller.procurar_user("jão")
-print(pegar_user.get_nome())
-print(pegar_user.get_id())
-
-user_teste2 = Usuario("2", "zé", "zé@yahoo.com", "aaa")
-user_controller.cadastrar_user(user_teste2)
-pegar_user2 = user_controller.procurar_user("zé")
-print(pegar_user2.get_nome())
-print(pegar_user2.get_id())
-
-
-user_teste3 = Usuario("3", "ba", "ba@hotmail.com", "bbb")
-user_controller.cadastrar_user(user_teste3)
-pegar_user = user_controller.procurar_user("ba")
-print(pegar_user.get_nome())
-print(pegar_user.get_id())
+prod_controller = ProdutoController()
+prod_teste = Produto("2", "Pokémon Scarlet", 249.90, "Mais um jogo de Pokémon que repete a mesma fórmula que todo mundo já tá de saco cheio")
+prod_controller.cadastrar_prod(prod_teste)
+get_prod = prod_controller.procurar_prod("2")
+print(get_prod.get_id())
+print(get_prod.get_nome())

@@ -5,6 +5,8 @@ from view.pagina_cadastro import PaginaCadastro
 
 class PaginaLogin:
 
+    _user_controller = None
+
     def __init__(self):
         self._user_controller = UsuarioController()
         st.title("Faça seu login")
@@ -25,5 +27,5 @@ class PaginaLogin:
         if (self._user_controller.comparar_Email(self._email) == False) and (self._user_controller.comparar_Senha(self._senha) == False):
             return False
         else:
-            home_page = PaginaHome()
+            self._home_page = PaginaHome()
             return True

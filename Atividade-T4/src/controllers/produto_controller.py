@@ -1,5 +1,5 @@
-from models.produto import Produto
-from dao.produto_dao import ProdutoDAO
+from src.models.produto import Produto
+from src.dao.produto_dao import ProdutoDAO
 
 class ProdutoController:
 
