@@ -54,11 +54,11 @@ class UsuarioDAO:
         self.conn.commit()
         self.cursor.close()
 
-    def procurar_usuario(self, id):
+    def procurar_usuario(self, nome):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             SELECT * FROM Usuarios
-            WHERE id = '{id}';
+            WHERE nome = '{nome}';
         """)
         user = None
         resultado = self.cursor.fetchone()
