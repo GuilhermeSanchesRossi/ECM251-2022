@@ -11,7 +11,7 @@ git config --global user.email email@email.com
 ```
 
 Ordem para criar um repositório:
-- Inicializao o reposítório
+- Inicializar o reposítório
 ```bash
 git init
 ```
@@ -39,9 +39,9 @@ ls -l
 - Criar e mudar para uma nova branch
 ```bash
 git checkout -b <nomeDaBranch>
-```bash
+```
 
 - Mudar pra branch já existente
 ```bash
 git checkout <nomeDaBranch>
-```bash
+```
